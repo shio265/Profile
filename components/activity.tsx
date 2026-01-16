@@ -59,7 +59,7 @@ interface LanyardData {
     spotify?: {
       track_id: string
       song: string
-      artist: string
+      artist: string | string[]
       album: string
       album_cover: string
       start_time: {
@@ -100,6 +100,29 @@ function formatTime(seconds: number): string {
 function parseTime(timeString: string): number {
   const [mins, secs] = timeString.split(':').map(Number)
   return mins * 60 + secs
+}
+
+function formatArtists(artist: string | string[]): string {
+  if (typeof artist === 'string') {
+    return artist
+  }
+  
+  if (artist.length === 0) {
+    return ''
+  }
+  
+  if (artist.length === 1) {
+    return artist[0]
+  }
+  
+  if (artist.length === 2) {
+    return `${artist[0]} & ${artist[1]}`
+  }
+  
+  // 3 or more artists
+  const lastArtist = artist[artist.length - 1]
+  const otherArtists = artist.slice(0, -1)
+  return `${otherArtists.join(', ')} & ${lastArtist}`
 }
 
 export default function CurrentActivity() {
@@ -239,7 +262,7 @@ export default function CurrentActivity() {
             </h3>
             
             <p className="text-xs text-white/70 truncate">
-              By {spotifyData.artist}
+              By {formatArtists(spotifyData.artist)}
             </p>
 
             <p className="text-xs text-white/70 truncate">

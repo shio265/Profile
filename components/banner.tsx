@@ -66,9 +66,9 @@ export default function Banner() {
                     <span>Shio625</span>
                   </Link>
 
-                  <Link href="https://github.com/Shiorin" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1.5 hover:text-white transition-colors">
+                  <Link href="https://github.com/shio265" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1.5 hover:text-white transition-colors">
                     <Github className="w-4 h-4" />
-                    <span>Shiorin</span>
+                    <span>shio265</span>
                   </Link>
                 </p>
               </div>
