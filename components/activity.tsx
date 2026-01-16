@@ -119,7 +119,6 @@ function formatArtists(artist: string | string[]): string {
     return `${artist[0]} & ${artist[1]}`
   }
   
-  // 3 or more artists
   const lastArtist = artist[artist.length - 1]
   const otherArtists = artist.slice(0, -1)
   return `${otherArtists.join(', ')} & ${lastArtist}`
@@ -142,7 +141,7 @@ export default function CurrentActivity() {
     return data.activities.find(a => a.type !== 4) || null
   }, [data])
 
-  // Spotify from active_platforms
+  // Spotify 
   const spotifyData = data?.active_platforms?.spotify
 
   useEffect(() => {
@@ -159,7 +158,7 @@ export default function CurrentActivity() {
         console.error('Failed to fetch Lanyard data:', error)
       }
     }
-    // Store fetchData in ref so it can be called from other effects
+    // Store fetchData 
     fetchDataRef.current = fetchData
     fetchData()
     const interval = setInterval(fetchData, refreshInterval)
@@ -262,11 +261,11 @@ export default function CurrentActivity() {
             </h3>
             
             <p className="text-xs text-white/70 truncate">
-              By {formatArtists(spotifyData.artist)}
+              On {spotifyData.album}
             </p>
 
             <p className="text-xs text-white/70 truncate">
-              On {spotifyData.album}
+              By {formatArtists(spotifyData.artist)}
             </p>
           </div>
 
