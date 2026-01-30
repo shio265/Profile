@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import {
   Tabs,
   TabsContent,
@@ -5,13 +8,6 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/animate-ui/components/radix/tabs';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 
 interface TabData {
   value: string;
@@ -28,9 +24,23 @@ interface TabComponentProps {
 }
 
 export default function TabComponent({ tabs }: TabComponentProps) {
+  const [activeTab, setActiveTab] = useState(tabs[0].value);
+
+  useEffect(() => {
+    const handleTabChange = (event: CustomEvent) => {
+      setActiveTab(event.detail);
+    };
+
+    window.addEventListener('changeTab', handleTabChange as EventListener);
+
+    return () => {
+      window.removeEventListener('changeTab', handleTabChange as EventListener);
+    };
+  }, []);
+
   return (
     <div className="flex w-full flex-col gap-6">
-      <Tabs defaultValue={tabs[0].value} className="w-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="w-full">
           {tabs.map((tab) => (
             <TabsTrigger key={tab.value} value={tab.value} className="flex-1">
@@ -38,19 +48,13 @@ export default function TabComponent({ tabs }: TabComponentProps) {
             </TabsTrigger>
           ))}
         </TabsList>
-        <Card className="shadow-none py-0">
-          <TabsContents className="py-6">
-            {tabs.map((tab) => (
-              <TabsContent key={tab.value} value={tab.value} className="flex flex-col gap-6">
-                <CardHeader>
-                  <CardTitle>{tab.card.title}</CardTitle>
-                  <CardDescription>{tab.card.description}</CardDescription>
-                </CardHeader>
-                <CardContent>{tab.card.content}</CardContent>
-              </TabsContent>
-            ))}
-          </TabsContents>
-        </Card>
+        <TabsContents className="py-6">
+          {tabs.map((tab) => (
+            <TabsContent key={tab.value} value={tab.value}>
+              <div>{tab.card.content}</div>
+            </TabsContent>
+          ))}
+        </TabsContents>
       </Tabs>
     </div>
   );

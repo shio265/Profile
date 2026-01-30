@@ -1,36 +1,91 @@
-# This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app)
+# Profile
+
+A personal portfolio website built with Next.js, showcasing my background, skills, projects, and certifications.
+
+## Tech Stack
+
+- Next.js 16
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ or Bun
+- Package manager: npm, yarn, pnpm, or bun
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/shio265/profile.git
+cd profile
+
+# Install dependencies
+npm install
+# or
+bun install
+```
+
+### Enviroment
+
+- Rename ``.env.example`` to ``.env``
+- Fill variable
+
+> [!NOTE]  
+> [Lanyard](https://github.com/Phineas/lanyard) has a different structure from [Lantern](https://github.com/discordplace/lantern). I’m using Lantern in this case.
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build the application for production:
 
-## Learn More
+```bash
+npm run build
+# or
+bun run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start the production server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm start
+# or
+bun start
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```strucs
+app/           # Next.js app directory
+components/    # React components
+  tabs/        # Tab section components
+  ui/          # UI components
+hooks/         # Custom React hooks
+lib/           # Utility functions
+public/        # Static assets
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Credit
+
+- Font: [Proxima Soft](https://www.marksimonson.com/fonts/view/proxima-soft/) by [marksimonson](https://marksimonson.com)
+- Programing [KawaiiLogos](https://github.com/SAWARATSUKI/KawaiiLogos) by [SAWARATSUKI](https://github.com/SAWARATSUKI)
+
+## License
+
+See [LICENSE](LICENSE) file for details.

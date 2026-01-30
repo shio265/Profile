@@ -1,6 +1,9 @@
 {
   "name": "profile",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "author": "shio265",
+  "description": "Personal website built with Next.js + Tailwind CSS + Shadcn UI",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,7 +15,7 @@
     "@base-ui/react": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.562.0",
+    "lucide-react": "^0.563.0",
     "motion": "^12.26.2",
     "next": "16.1.1",
     "next-themes": "^0.4.6",
@@ -25,7 +28,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^25.1.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

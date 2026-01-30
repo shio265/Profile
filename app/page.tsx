@@ -3,6 +3,10 @@
 // import { Badge } from '@/components/ui/badge';
 import ProfileTabs from '@/components/tab';
 import Banner from '@/components/banner';
+import Overview from '@/components/tabs/overview';
+import Skill from '@/components/tabs/skill';
+import Project from '@/components/tabs/project';
+import Certification from '@/components/tabs/certification';
 
 export default function Main() {
   return (
@@ -20,7 +24,7 @@ export default function Main() {
                 card: {
                   title: 'Overview',
                   description: 'Get to know more about me and my background.',
-                  content: 'Oops! this page not ready yet.',
+                  content: <Overview />,
                 },
               },
               {
@@ -29,7 +33,7 @@ export default function Main() {
                 card: {
                   title: 'Skills',
                   description: 'Technologies and tools I work with.',
-                  content: 'Nothing to see here yet.',
+                  content: <Skill />,
                 },
               },
               {
@@ -38,7 +42,7 @@ export default function Main() {
                 card: {
                   title: 'Projects',
                   description: 'My work and contributions.',
-                  content: 'Nothing to see here yet.',
+                  content: <Project />,
                 },
               },
               {
@@ -47,7 +51,7 @@ export default function Main() {
                 card: {
                   title: 'Certifications',
                   description: 'My professional certifications.',
-                  content: 'Nothing to see here yet.',
+                  content: <Certification />,
                 },
               }
             ]} />
